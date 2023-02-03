@@ -1,0 +1,8 @@
+{
+    "name": "beto/tshirt-customizer",
+    "description": "Tshirt UI Designer",
+    "require": {
+        "dompdf/dompdf": "0.6"
+    },
+    "minimum-stability": "stable"
+}

@@ -1,0 +1,185 @@
+<html>
+<head>
+	<title>Awesome tshirt Shop</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!-- 	CSS -->
+	<link href="../data/fonts/stylesheet.css" rel="stylesheet" type="text/css" />
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+	<link href="css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+	<link href="css/jquery-ui-1.8.20.custom.css" rel="stylesheet" type="text/css" />		
+	<link href="css/master.css" rel="stylesheet" type="text/css" />		
+</head>
+<body>
+	<div id="loading" class="loading">Loading ...</div>
+	<div class="modal fade" id="helper" style="display:none;">
+		<div class="modal-header"><h3 id="title"></h3></div>
+		<div class="modal-body" id="text"> </div>
+		<div class="modal-footer"> <a href="#" class="btn btn-primary" data-dismiss="modal">CLOSE</a>	  	</div>
+	</div>
+	<div class="container" id="tshirtTool" >
+		<br>
+		<div class="row">
+			<div class="span12">
+				<div id="menu">
+					<div class="btn-group">
+					<div id="menu_productos" class="btn"><i class="icon-eye-open"></i> Seleccionar Producto</div>
+					<div id="menu_diseno" class="btn"><i class=" icon-book"></i> Seleccionar Diseño</div>
+	
+					<a id="btn_new_textbox" class="btn" ><i class="icon-font"></i> Textbox</a>
+					<a id="menu_foto" class="btn"  ><i class="icon-picture"></i> Imagen</a>
+					<a class="btn"  id="makepdf-btn"   ><i class="icon-plus-sign"></i> Make PDF</a>
+					</div>
+				</div>			
+			</div>
+		</div>
+		<br><br>
+		<div class="row" style="height:511px">
+			<div class="span3">
+				<div id="products" class="">
+				<!-- 	<h3>Selecciona Producto</h3> -->
+					<div class="subwindow_content">
+						<select id="comboCategoria"  name="categoria"></select>
+						<select id="comboSubCategoria"  name="subcategoria"> </select>
+						<hr>
+						<div id="productThumbs"></div>
+						<hr>
+						<div id="productsNavigator"></div>
+					</div>
+				</div>
+				<div id="designs" class="subwindow " style="display:none;">	<h3>Selecciona Diseño</h3>
+					<div class="subwindow_content"></div>
+				</div>
+			</div>
+			<div class="span6" style="text-align:center;">
+				<div id="custom" >
+					<img id="productImage"  src="">
+					<div id="front_img" style="display:none;" class="vistaproduct btn btn-primary" ><i class="icon-arrow-left icon-white"></i> Delante</div>
+					<div id="back_img"  class="vistaproduct btn btn-primary" ><i class="icon-arrow-right icon-white"></i> Detrás</div>
+				</div>	
+				&nbsp;
+			</div>		
+			<div class="span3">			
+				<div id="uploadImage" class=" " style="display:none;">
+					<h3>Upload Image</h3>
+					<div class="subwindow_content">
+						* Si dispones de la imagen vectorizada, ponte en contacto con nosotros.<br>
+						<form name="form2" action="" method="POST" enctype="multipart/form-data">
+						<input id="fileToUpload" type="file" size="20" name="fileToUpload" class="input"><br><br>
+						<btn class="btn btn-primary" id="btnUpload"><i class="icon-white icon-picture"></i> Upload</btn>
+						</form> 
+					</div>
+				</div>				
+				<div id="textOptions" class="">
+					<div class="subwindow_content">
+					  <div class="btn-group">
+					  <button class="btn btn-small"><i class=" icon-tint"></i> Color</button>
+					  <button class="btn dropdown-toggle" style="height:28px" data-toggle="dropdown"> <span class="caret"></span>  </button>
+					  	<ul class="dropdown-menu">
+							<div class="btn color_box" style="background:red;">&nbsp;</div>
+							<div class="btn color_box" style="background:yellow;">&nbsp;</div>
+							<div class="btn color_box" style="background:blue;">&nbsp;</div>
+							<div class="btn color_box" style="background:white;">&nbsp;</div>
+							<div class="btn color_box" style="background:green;">&nbsp;</div>
+							<div class="btn color_box" style="background:black;">&nbsp;</div>
+							<div class="btn color_box" style="background:brown;">&nbsp;</div>
+							<div class="btn color_box" style="background:pink;">&nbsp;</div>
+							<div class="btn color_box" style="background:gray;">&nbsp;</div>
+							<div class="btn color_box" style="background:fucsia;">&nbsp;</div>
+							<div class="btn color_box" style="background:maroon;">&nbsp;</div>
+							<div class="btn color_box" style="background:black;">&nbsp;</div>
+						</ul>		
+					</div>
+					<br>	
+					<select name="fontfamily"  id="fontfamily" style="">
+						<option value="Arial">Arial</option>
+						<option value="Verdana">Verdana</option>
+						<option value="Tahoma">Tahoma</option>
+						<option value="Courier New">Courier</option>
+						<option value="Helvetica">Helvetica</option>
+						<option value="AllerRegular">AllerRegular</option>
+						<option value="BallparkWeiner">BallparkWeiner</option>
+						<option value="BebasRegular">BebasRegular</option>	
+						<option value="CaptureitRegular">CaptureitRegular</option>
+						<option value="Captureit2Regular">Captureit2Regular</option>
+						<option value="ChunkFiveRoman">ChunkFiveRoman</option>
+						<option value="DenneFreakshowRegular">DenneFreakshowRegular</option>
+						<option value="DistrictThin">DistrictThin</option>
+						<option value="FragmentCoreRoman">FragmentCoreRoman</option>
+					</select>
+					<select style="width:100px;" name="fontsize"  id="fontsize"></select>
+					<div class="btn-group" style="display:inline-block;vertical-align:baseline;">
+						<div class="btn option" id="bold_btn" style="font-weight:bold;"><i class="icon-bold"></i></div>
+						<div class="btn option" id="italic_btn" style="font-style:italic;"><i class="icon-italic"></i></div>
+					</div>
+					<div class="btn-group">
+			          <a class="btn" id="leftalign" href="#"><i class="icon-align-left"></i></a>
+			          <a class="btn" id="centeralign" href="#"><i class="icon-align-center"></i></a>
+			          <a class="btn" id="rightalign" href="#"><i class="icon-align-right"></i></a>
+			        </div>		
+				</div>
+			</div>
+			<hr>
+			<div id="checkout" class="">
+				<div class="subwindow_content">
+					<form name="form1" style="margin:0px;" method="post" action="php/controller.php">
+						<div id="precio" class="inline"> 0 € </div><br>
+						<small>Impuestos incluídos</small> 
+						<br><br>
+												Cantidad: <select name="cantidad" id="cantidad" onchange=""></select><br> 	
+
+
+						<div class="btn-group">
+							<div id="talla_S" class="btn talla"><a href="javascript:setTalla('S');">S</a></div>
+							<div id="talla_M" class="btn talla"><a href="javascript:setTalla('M');">M</a></div> 		
+							<div id="talla_L" class="btn talla"><a href="javascript:setTalla('L');">L</a></div> 		
+							<div id="talla_XL" class="btn talla"><a href="javascript:setTalla('XL');">XL</a></div>
+							<a class="btn btn-success" id="btn_comprar"><i class=" icon-shopping-cart icon-white"></i> Comprar</a>
+						</div>
+						<input type="hidden" name="jsona" id="jsona" value="">
+						<input type="hidden" name="jsonb" id="jsonb" value="">
+						<input type="hidden" name="op" id="op" value="">
+						<input type="hidden" name="returnUrl" id="returnUrl" value="/pedido_confirmado.php">
+					</form>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<hr> 
+	<div class="row">
+		<div id="td_imgProduct" class="span3">
+			<img src="../data/img/infoproduct.png">
+		</div>
+		<div class="span3" id="td_descriptionProduct">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</div>
+		<div class="span3">
+		&nbsp;
+		</div>
+		<div id="td_help" class="span3">
+			<b>Aceptamos</b><br>
+			<img width="177" src="img/payment.jpeg"><br><br>
+		</div>
+	</div>
+<hr>
+<div class="row">
+	<div class="span12">
+		&copy; Beto Ayesa</div>
+	</div>
+</div>
+
+
+
+	<!-- 		JS Librarys -->
+	<script src="vendor/jquery-1.7.2.min.js"></script>
+	<script src="vendor/jquery-ui-1.8.20.custom.min.js"></script>
+	<script src="vendor/ajaxfileupload.js"></script>
+	<script src="vendor/jquery.autosize-min.js"></script>
+	<script src="vendor/bootstrap.min.js"></script>
+	<script src="vendor/json2.js"></script>
+
+	<!-- 		UI load -->
+	<script src="js/functions.js"></script>	
+	<script src="js/application.js"></script>	
+
+</body>
+</html>
